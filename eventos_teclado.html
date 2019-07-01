@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Eventos de teclado</title>
+</head>
+<body>
+	<style type="text/css">
+		#personaje{
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			background-color: red;
+		}
+	</style>
+	<div id="personaje" style="top: 0; left: 0;"></div>
+
+	<script type="text/javascript">
+		window.addEventListener("keypress", function(e){
+			console.log("keypress",e);
+		});
+		window.addEventListener("keydown", function(e){
+			//console.log("keydown",e);
+			var personaje = document.getElementById("personaje");
+			switch(e.code){
+				case "ArrowDown":
+					personaje.style.top = (personaje.offsetTop + 10) + "px";
+					break;
+				case "ArrowUp":
+					personaje.style.top = (personaje.offsetTop - 10) + "px";
+					break;
+				case "ArrowLeft":
+					personaje.style.left = (personaje.offsetLeft - 10) + "px";
+					break;
+				case "ArrowRight":
+					personaje.style.left = (personaje.offsetLeft + 10) + "px";
+					break;
+			}
+		});
+	</script>
+</body>
+</html>
